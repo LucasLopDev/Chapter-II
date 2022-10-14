@@ -11,7 +11,7 @@ class SpecificationRepository implements ISpecificationRepository {
   private constructor() {
     this.specifications = [];
   }
-  public static getInstace() {
+  public static getInstance() {
     if (!SpecificationRepository.INSTANCE) {
       SpecificationRepository.INSTANCE = new SpecificationRepository();
     }
