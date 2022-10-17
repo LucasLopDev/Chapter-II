@@ -1,10 +1,14 @@
 import { v4 as uuidV4 } from "uuid";
 
-class Category {
+class Specification {
   id?: string;
+
   name: string;
+
   description: string;
+
   created_at?: Date;
+
   constructor() {
     if (!this.id) {
       this.id = uuidV4();
@@ -12,4 +16,4 @@ class Category {
   }
 }
 
-export { Category };
+export { Specification };

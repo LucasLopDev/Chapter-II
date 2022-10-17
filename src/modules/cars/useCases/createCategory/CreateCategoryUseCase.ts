@@ -5,9 +5,12 @@ interface IRequest {
   description: string;
 }
 class CreateCategoryUseCase {
-  constructor(private categoriesRepository: ICategoriesRepository) {}
-  execute({ description, name }: IRequest) {
-    const categoryAlreadyExist = this.categoriesRepository.findByName(name);
+  // eslint-disable-next-line prettier/prettier
+  constructor(private categoriesRepository: ICategoriesRepository) { }
+  async execute({ description, name }: IRequest): Promise<void> {
+    const categoryAlreadyExist = await this.categoriesRepository.findByName(
+      name
+    );
 
     if (categoryAlreadyExist) {
       throw new Error("Category Already exist!");
