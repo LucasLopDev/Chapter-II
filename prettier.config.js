@@ -1,3 +1,3 @@
 module.exports = {
-  singleQuoute: false,
+  singleQuote: false,
 };
