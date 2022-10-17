@@ -1,16 +1,13 @@
-import { createConnection } from "typeorm";
+import { createConnection, getConnectionOptions } from "typeorm";
 
-createConnection();
+interface IOptions {
+  host: string;
+}
 
-// import { DataSource } from "typeorm";
-
-// const dataSource = new DataSource({
-//   type: "postgres",
-//   host: "database",
-//   port: 5432,
-//   username: "docker",
-//   password: "12345",
-//   database: "avalon",
-// });
-
-// dataSource.initialize();
+getConnectionOptions().then((options) => {
+  const newOptions = options as IOptions;
+  newOptions.host = "database"; // Essa opção deverá ser EXATAMENTE o nome dado ao service do banco de dados
+  createConnection({
+    ...options,
+  });
+});
